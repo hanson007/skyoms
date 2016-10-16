@@ -22,7 +22,7 @@
 <div id="main-container">
 	<div class="padding-md">
 		<div class="row">
-			<div class="col-md-6">
+			<div class="col-md-12">
 				<div class="panel panel-default">
 					<div class="no-margin" id="formValidate1" data-validate="parsley" novalidate="">
 						<div class="panel-heading">
@@ -30,48 +30,85 @@
 						</div>
 						<div class="panel-body">
 							<div class="row">
-								<div class="col-md-6">
-									<div class="form-group">
-										<label class="control-label">模板名称</label>
-										<input type="text" class="form-control input-sm parsley-validated" id="name">
-									</div><!-- /form-group -->
+								<div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="col-lg-1 control-label">模板名称</label>
+                                        <div class="col-lg-4">
+                                            <input class="form-control" type="text">
+                                        </div><!-- /.col -->
+                                    </div>
 								</div><!-- /.col -->
 							</div><!-- /.row -->
-
+                            <div class="seperator"></div>
+                            <div class="seperator"></div>
 							<div class="row">
-								<div class="col-md-6">
-									<div class="form-group">
-										<label class="control-label">路径</label>
-										<input type="text" class="form-control input-sm parsley-validated" id="in_ip">
-									</div><!-- /form-group -->
+								<div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="col-lg-1 control-label">路径</label>
+                                        <div class="col-lg-4">
+                                            <input class="form-control" type="text">
+                                        </div><!-- /.col -->
+                                    </div>
 								</div><!-- /.col -->
 							</div><!-- /.row -->
-
+                            <div class="seperator"></div>
+                            <div class="seperator"></div>
 							<div class="row">
-								<div class="col-md-6">
-									<div class="form-group">
-										<label class="control-label">外网IP</label>
-										<input type="text" class="form-control input-sm parsley-validated" id="ex_ip">
-									</div><!-- /form-group -->
+								<div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="col-lg-1 control-label">服务器</label>
+                                        <div class="col-lg-10">
+                                            <div class="row">
+                                                <div class="col-lg-3">
+                                                    <input type="text" class="form-control" placeholder="可选">
+                                                </div><!-- /.col -->
+                                                <div class="col-lg-2"></div>
+                                                <div class="col-lg-3" style="padding-left: 0px;">
+                                                    <input type="text" class="form-control" placeholder="已选">
+                                                </div><!-- /.col -->
+                                            </div><!-- /.row -->
+                                        </div><!-- /.col -->
+                                    </div>
 								</div><!-- /.col -->
 							</div><!-- /.row -->
-
-							<div class="row">
-								<div class="col-md-6">
-									<div class="form-group">
-										<label class="control-label">位置</label>
-										<!--<input type="text" class="form-control input-sm parsley-validated" id="status" data-required="true">-->
-										<select id="position" class="form-control parsley-validated" data-required="true">
-											<option value="">请选择</option>
-											<option value="腾讯云">腾讯云</option>
-											<option value="阿里云">阿里云</option>
-											<option value="IDC">IDC机房</option>
-										</select>
-									</div><!-- /form-group -->
+                            <div class="row">
+								<div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="col-lg-1"></label>
+                                        <div class="col-lg-4">
+                                            <select multiple="" class="form-control" style="height: 180px">
+                                            </select>
+                                        </div><!-- /.col -->
+                                        <div class="col-lg-1" style="padding-left: 0px;padding-right: 0px;margin-top: 60px;">
+                                            <table>
+                                                <tr>
+                                                   <td>
+                                                        <button class="btn btn-sm" type="button">
+                                                            <i class="fa fa-chevron-right"></i>
+                                                            <i class="fa fa-chevron-right"></i>
+                                                        </button>
+                                                   </td>
+                                                </tr>
+                                                <tr><td></td></tr>
+                                                <tr>
+                                                   <td>
+                                                        <button class="btn btn-sm" type="button">
+                                                            <i class="fa fa-chevron-left"></i>
+                                                            <i class="fa fa-chevron-left"></i>
+                                                        </button>
+                                                   </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <select multiple="" class="form-control" style="height: 180px">
+                                            </select>
+                                        </div><!-- /.col -->
+                                    </div>
 								</div><!-- /.col -->
 							</div><!-- /.row -->
 						</div>
-						<div class="panel-footer text-right">
+						<div class="panel-footer text-left">
 							<button id="save" type="button" class="btn btn-success">保存</button>
 						</div>
 					</div>
