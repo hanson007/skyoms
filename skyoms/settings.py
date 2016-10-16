@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'cmdb',
+    'code_release',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

@@ -15,25 +15,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url
-from django.contrib import admin
-from django.contrib.auth.views import logout
-from django.contrib.auth.views import login
-# from django.contrib.auth.urls import
-from django.conf.urls import include
-from cmdb import views
+import views
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
 
-    url(r'^$', views.index, name='index'),
-    url(r'^accounts/profile/$', views.index, name='index'),
+    url(r'^new_template/$', views.new_template, name='new_template'),  # 新建模板
 
-    url(r'^accounts/login/$', login, {'template_name': 'login.html'}),
-    url(r'^accounts/logout/$', logout),
-
-    # 设备管理
-    url(r'^cmdb/', include('cmdb.urls')),
-
-    # 代码发布
-    url(r'^code_release/', include('code_release.urls')),
 ]

@@ -7,9 +7,7 @@ from django.db import models
 
 
 class Server(models.Model):
-    '''
-                服务器信息
-    '''
+    # 服务器信息
     in_ip = models.CharField(max_length=255, null=True, blank=True, unique=True, verbose_name=u'内网IP')  # 内网ip
     ex_ip = models.CharField(max_length=255, null=True, blank=True, verbose_name=u'外网IP')  # 弹性ip
     project_name = models.CharField(max_length=255, null=True, blank=True, verbose_name=u'项目名称')

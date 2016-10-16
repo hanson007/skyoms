@@ -8,7 +8,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.db.models import Q
 from models import *
-import  json
+import json
 # Create your views here.
 
 PAGE_SIZE = 10  # 每页显示条数

@@ -315,8 +315,6 @@
 							<ul class="submenu">
 								<li><a href="/cmdb/server_list/"><span class="submenu-label">服务器</span></a></li>
 								<li><a href="/people/batch_upload/"><span class="submenu-label">批量添加</span></a></li>
-{#								<li><a href="/people/headquarters/"><span class="submenu-label">总部</span></a></li>#}
-{#								<li><a href="/people/puhui/"><span class="submenu-label">普惠</span></a></li>#}
 							</ul>
 						</li>
 						<li class="openable">
@@ -327,7 +325,15 @@
 								<span class="text">
 									代码发布
 								</span>
+                                <span class="badge badge-success bounceIn animation-delay5">4</span>
+								<span class="menu-hover"></span>
 							</a>
+                            <ul class="submenu">
+								<li><a href="/code_release/new_template/" target="_blank"><span class="submenu-label">新建模板</span></a></li>
+								<li><a href="/people/batch_upload/"><span class="submenu-label">模板列表</span></a></li>
+								<li><a href="/people/headquarters/"><span class="submenu-label">申请更新</span></a></li>
+								<li><a href="/people/puhui/"><span class="submenu-label">更新列表</span></a></li>
+							</ul>
 						</li>
 						{% endblock %}
 					</ul>
