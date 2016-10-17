@@ -20,5 +20,6 @@ import views
 urlpatterns = [
 
     url(r'^new_template/$', views.new_template, name='new_template'),  # 新建模板
+    url(r'^get_servers/$', views.get_servers, name='get_servers'),  # 获取服务器数据
 
 ]

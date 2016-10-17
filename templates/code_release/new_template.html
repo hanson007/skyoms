@@ -58,58 +58,57 @@
                                     <div class="form-group">
                                         <label class="col-lg-1 control-label">服务器</label>
                                         <div class="col-lg-10">
-                                            <div class="row">
-                                                <div class="col-lg-3">
-                                                    <input type="text" class="form-control" placeholder="可选">
-                                                </div><!-- /.col -->
-                                                <div class="col-lg-2"></div>
-                                                <div class="col-lg-3" style="padding-left: 0px;">
-                                                    <input type="text" class="form-control" placeholder="已选">
-                                                </div><!-- /.col -->
-                                            </div><!-- /.row -->
-                                        </div><!-- /.col -->
-                                    </div>
-								</div><!-- /.col -->
-							</div><!-- /.row -->
-                            <div class="row">
-								<div class="col-md-12">
-                                    <div class="form-group">
-                                        <label class="col-lg-1"></label>
-                                        <div class="col-lg-4">
-                                            <select multiple="" class="form-control" style="height: 180px">
-                                            </select>
-                                        </div><!-- /.col -->
-                                        <div class="col-lg-1" style="padding-left: 0px;padding-right: 0px;margin-top: 60px;">
                                             <table>
+                                            <tbody>
                                                 <tr>
-                                                   <td>
-                                                        <button class="btn btn-sm" type="button">
-                                                            <i class="fa fa-chevron-right"></i>
-                                                            <i class="fa fa-chevron-right"></i>
-                                                        </button>
-                                                   </td>
+                                                    <td>
+                                                        <input type="text" class="form-control" placeholder="可选" style="width: 180px;" id="no_user_search">
+                                                    </td>
+                                                    <td></td>
+                                                    <td>
+                                                        <input type="text" class="form-control" placeholder="已选" style="width: 180px;" id="user_search">
+                                                    </td>
                                                 </tr>
-                                                <tr><td></td></tr>
                                                 <tr>
-                                                   <td>
-                                                        <button class="btn btn-sm" type="button">
-                                                            <i class="fa fa-chevron-left"></i>
-                                                            <i class="fa fa-chevron-left"></i>
+                                                    <td class="hide"><!-- 保存可选用户的原始数据，用于用户搜索 -->
+                                                        <select multiple="multiple" name="no_selected_users_hide" id="no_selected_users_hide">
+                                                        </select>
+                                                    </td>
+                                                    <td>
+                                                        <select multiple="multiple" class="form-control" style="height: 180px;width: 326px;" id="no_selected_users">
+                                                        </select>
+                                                    </td>
+                                                    <td style="width: 35px;">
+                                                        <button class="btn btn-default btn-sm" type="button" id="select_user_btn">
+                                                        <i class="fa fa-chevron-right"></i>
+                                                        <i class="fa fa-chevron-right"></i>
                                                         </button>
-                                                   </td>
+                                                        <button class="btn btn-default btn-sm" type="button" id="un_select_user_btn">
+                                                        <i class="fa fa-chevron-left"></i>
+                                                        <i class="fa fa-chevron-left"></i>
+                                                        </button>
+                                                    </td>
+                                                    <td class="hide"><!-- 保存已选用户的原始数据，用于用户搜索 -->
+                                                        <select multiple="multiple" name="selected_users_hide" id="selected_users_hide">
+                                                        </select>
+                                                    </td>
+                                                    <td>
+                                                        <select multiple="multiple" class="form-control" style="height: 180px;width: 326px;" id="selected_users">
+                                                        </select>
+                                                    </td>
                                                 </tr>
+                                                <tr>
+                                                    <td>按住ctrl多选</td>
+                                                </tr>
+                                            </tbody>
                                             </table>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <select multiple="" class="form-control" style="height: 180px">
-                                            </select>
                                         </div><!-- /.col -->
                                     </div>
 								</div><!-- /.col -->
 							</div><!-- /.row -->
 						</div>
-						<div class="panel-footer text-left">
-							<button id="save" type="button" class="btn btn-success">保存</button>
+						<div class="panel-footer text-center">
+							<button id="save" type="button" class="btn btn-success" style="margin-right: 180px;">保存</button>
 						</div>
 					</div>
 				</div><!-- /panel -->
@@ -125,6 +124,17 @@
 <!-- Parsley表单验证 -->
 <script src="/static/template/js/parsley.min.js"></script>
 <script>
+$(document).ready(function(){
+  //加载服务器数据
+    var url = "/code_release/get_servers/";
+    $.post(url,function (res) {
+        var res = $.parseJSON(res)
+        console.log(res)
+    })
+});
+
+
+
 /*
 *保存数据
 */
