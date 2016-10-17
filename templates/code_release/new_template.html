@@ -56,6 +56,18 @@
 							<div class="row">
 								<div class="col-md-12">
                                     <div class="form-group">
+                                        <label class="col-lg-1 control-label">tomcat实例名</label>
+                                        <div class="col-lg-4">
+                                            <input class="form-control" type="text">
+                                        </div><!-- /.col -->
+                                    </div>
+								</div><!-- /.col -->
+							</div><!-- /.row -->
+                            <div class="seperator"></div>
+                            <div class="seperator"></div>
+							<div class="row">
+								<div class="col-md-12">
+                                    <div class="form-group">
                                         <label class="col-lg-1 control-label">服务器</label>
                                         <div class="col-lg-10">
                                             <table>
@@ -127,12 +139,56 @@
 $(document).ready(function(){
   //加载服务器数据
     var url = "/code_release/get_servers/";
-    $.post(url,function (res) {
-        var res = $.parseJSON(res)
-        console.log(res)
+    $.post(url,function (data) {
+        var data = $.parseJSON(data);
+        $.each(data, function (k, v) {
+            cont = ["<option value=", v.id, ">", v.in_ip, "</option>"].join("");
+            $('#no_selected_users_hide').append(cont);
+            $('#no_selected_users').append(cont);
+        })
     })
 });
 
+
+//可选机器搜索
+$('#no_user_search').keyup(function(){
+	$('#no_selected_users').empty();
+	var options = $('#no_selected_users_hide').children();
+	var key = $(this).val();
+	$.each(options,function(i,option){
+		if(option.text.indexOf(key) > -1){
+			$('#no_selected_users').append('<option value="'+option.value+'">'+option.text+'</option>')
+		}
+	});
+});
+//已选机器搜索
+$('#user_search').keyup(function(){
+	$('#selected_users').empty();
+	var options = $('#selected_users_hide').children();
+	var key = $(this).val();
+	$.each(options,function(i,option){
+		if(option.text.indexOf(key) > -1){
+			$('#selected_users').append('<option value="'+option.value+'">'+option.text+'</option>')
+		}
+	});
+});
+
+
+// 双击添加到右边，从左边移除
+$("#no_selected_users option").on('click',function(e){
+    console.log(1)
+    $("#selected_users").append('<option value="'+e.target.value+'">'+e.target.text+'</option>');
+    $("#selected_users_hide").append('<option value="'+e.target.value+'">'+e.target.text+'</option>');//添加已选用户原始数据
+    e.target.remove();
+    $('#no_selected_users_hide').find("option[value='"+e.target.value+"']").remove(); //删除可选用户原始数据项
+});
+//反过来
+$("#selected_users option").on('dblclick',function(e){
+    $("#no_selected_users").append('<option value="'+e.target.value+'">'+e.target.text+'</option>');
+    $("#no_selected_users_hide").append('<option value="'+e.target.value+'">'+e.target.text+'</option>'); //添加可选用户原始数据
+    e.target.remove();
+    $('#selected_users_hide').find("option[value='"+e.target.value+"']").remove(); //删除已选用户原始数据项
+});
 
 
 /*
